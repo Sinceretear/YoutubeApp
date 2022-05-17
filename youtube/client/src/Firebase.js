@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useNavigate } from 'react-router';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,26 +20,25 @@ export const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
 
-function Redirect() {
-  let navigate = useNavigate();
-  navigate('/pages/Dashboard.js')
-}
+
 
 export const signInWithGoogle = () => {
+
     signInWithPopup(auth, provider).then((result) => {
         console.log(result);
         const name = result.user.displayName;
         const email = result.user.email;
         const profilePic = result.user.photoURL;
 
+
         //local browser storage
         localStorage.setItem('name', name);
         localStorage.setItem('email', email);
         localStorage.setItem('profilePic', profilePic);
 
-        Redirect()
 
     }).catch((error) => {
         console.log(error);
     });
 };
+
