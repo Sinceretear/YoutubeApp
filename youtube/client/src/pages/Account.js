@@ -203,12 +203,15 @@ function Account() {
         </Disclosure>
 
         <header className="bg-white shadow">
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <div className="flex max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold text-gray-900">My Account</h1>
+            <div className="ml-96">
+              <YoutubeSubscriberList />
+              </div>
           </div>
         </header>
 
-        <div className="flex flex-no-wrap">
+        <div className="flex flex-no-wrap h-screen">
             {/* Sidebar starts */}
             {/* Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] */}
             <div className="w-64 absolute sm:relative bg-gray-800 shadow md:h-full flex-col justify-between hidden sm:flex">
@@ -446,7 +449,7 @@ function Account() {
                             </div>
                         </li>
                     </ul>
-                    <div className="flex justify-center mt-48 mb-4 w-full">
+                    <div className="flex justify-center mt-96 mb-4 w-full">
                         <div className="relative ">
                             <div className="text-gray-500 absolute ml-4 inset-0 m-auto w-4 h-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -502,16 +505,76 @@ function Account() {
                     <main>
                     <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                         {/* Replace with your content */}
-                        {/* <div className="px-4 py-6 sm:px-0">
-                        <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
-                        </div> */}
+                        <div className="px-4 py-6 sm:px-0">
+                        <div className="columns-3">
+                              <div class="break-after-column">
+                              <h2><b>Recent videos past two weeks</b></h2>
+                                <ul>
+                                <li>The tesla space suit </li>
+                                <li>The james webb tele </li>
+                                <li>This battery will</li>
+                                <li>the world in 2050</li>
+                                <li>elon musk zone</li>
+                                <li>whats this new discovery</li>
+                                <li>tesla house </li>
+                              </ul>
+                              </div>
+                              <div class="break-after-column">
+                                <h2><b>Channel Subsciptions</b></h2>
+                              <ul>
+                                <li>The tesla space </li>
+                                <li>elon musk zone </li>
+                                <li>Futurnity</li>
+                                <li>melodysheep</li>
+                                <li>nasa</li>
+                                <li>future origns</li>
+                                <li>Space channel</li>
+                              </ul>
+                              </div>
+                          
+                          </div>
+                          
+                          
+                          <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 mb-4" />
+                          
+                          <div className="grid grid-cols-8 grid-flow-col gap-4 overflow-auto h-96">
+                            <div className="col-span-2">
+                              <h2>My Subscriptions</h2>
+                                <div className="flex items-center gap-4 p-4">
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" />
+                                 <div className="flex flex-col">
+                                    <strong>The Tesla Space</strong>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-4 p-4">
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" />
+                                 <div className="flex flex-col">
+                                    <strong>Futurnity</strong>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-4 p-4">
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" />
+                                 <div className="flex flex-col">
+                                    <strong>Melodysheep</strong>
+                                  </div>
+                                </div>
+                              
+                            </div>
+                            <div className="col-span-6">
+                                  <strong>List of video titles from your subscriptions - last 2 weeks - most viewed first - some kind of velocity score</strong>
+                            </div>
+                          </div>
+
+
+
+                        </div>
                         <div>
                             <h1>Sign into your youtube account</h1>
                             <p>Email: {user && user.email}</p>
                             <button onClick={handleLogout} className='border px-6 py-2 my-4' >Logout</button>
                             <br />
                             <br />
-                            <YoutubeSubscriberList />
+                            
                         </div>
                         {/* /End replace */}
                     </div>

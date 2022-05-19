@@ -3,8 +3,6 @@ import { gapi } from 'gapi-script';
 
 class YoutubeSubscriberList extends Component {
     
-    
-    
     componentDidMount() {
       window.gapi.load('client:auth2', function() {
         window.gapi.client.init({
@@ -24,15 +22,6 @@ class YoutubeSubscriberList extends Component {
     listChannelsFollowed = () => {
         console.log('users channels are as follows');
             
-
-
-            // Example 2: Use gapi.client.request(args) function
-            
-            // const request = gapi.client.request({
-            // 'method': 'GET',
-            // 'path': '/youtube/v3/subscriptions',
-            // 'params': {'part': 'snippet', 'mine': 'true'}
-            // });
             const request = gapi.client.youtube.subscriptions.list({
                 "mySubscribers": true
               })
@@ -51,8 +40,8 @@ class YoutubeSubscriberList extends Component {
     render() {
       return (
         <div>
-          <button type="button" onClick={this.login.bind(this)}class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">+ Add Chanel</button>
-          <button type="button" onClick={this.listChannelsFollowed.bind(this)}class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">pull channels</button>
+          <button type="button" onClick={this.login.bind(this)}class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">+ Youtube Login</button>
+          <button type="button" onClick={this.listChannelsFollowed.bind(this)}class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Pull Channel Info</button>
 
         </div>
       )
