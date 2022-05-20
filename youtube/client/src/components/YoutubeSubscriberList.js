@@ -40,8 +40,8 @@ class YoutubeSubscriberList extends Component {
     render() {
       return (
         <div>
-          <button type="button" onClick={this.login.bind(this)}class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">+ Youtube Login</button>
-          <button type="button" onClick={this.listChannelsFollowed.bind(this)}class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">Pull Channel Info</button>
+          <button type="button" onClick={this.login.bind(this)}class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">+ Youtube Login</button>
+          <button type="button" onClick={this.listChannelsFollowed.bind(this)}class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">Pull Channel Info</button>
 
         </div>
       )

@@ -3,6 +3,7 @@ import { UserAuth } from '../context/AuthContext'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Link, useNavigate } from 'react-router-dom'
 import YoutubeSubscriberList from '../components/YoutubeSubscriberList';
 
@@ -54,11 +55,11 @@ function Account() {
         <body class="h-full">
         ```
       */}
-      <div className="min-h-full">
+      <div className="flex flex-col h-screen">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
             <>
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
                 <div className="flex items-center justify-between h-16">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
@@ -202,16 +203,9 @@ function Account() {
           )}
         </Disclosure>
 
-        <header className="bg-white shadow">
-          <div className="flex max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold text-gray-900">My Account</h1>
-            <div className="ml-96">
-              <YoutubeSubscriberList />
-              </div>
-          </div>
-        </header>
+        
 
-        <div className="flex flex-no-wrap h-screen">
+        <div className="flex flex-grow border-t-2 border-gray-600">
             {/* Sidebar starts */}
             {/* Remove class [ hidden ] and replace [ sm:flex ] with [ flex ] */}
             <div className="w-64 absolute sm:relative bg-gray-800 shadow md:h-full flex-col justify-between hidden sm:flex">
@@ -449,8 +443,8 @@ function Account() {
                             </div>
                         </li>
                     </ul>
-                    <div className="flex justify-center mt-96 mb-4 w-full">
-                        <div className="relative ">
+                    {/* <div className="flex justify-center place-self-end mb-4 w-full">
+                        <div className="relative">
                             <div className="text-gray-500 absolute ml-4 inset-0 m-auto w-4 h-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" />
@@ -460,7 +454,7 @@ function Account() {
                             </div>
                             <input className=" bg-gray-700 focus:outline-none rounded w-full text-sm text-gray-500 bg-gray-100 pl-10 py-2" type="text" placeholder="Search" />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="px-8 border-t border-gray-700">
                     <ul className="w-full flex items-center justify-between bg-gray-800">
@@ -497,76 +491,158 @@ function Account() {
                 </div>
             </div>
             {/* Sidebar ends */}
-            {/* Remove class [ h-64 ] when adding a card block */}
+            
             <div className="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
-                {/* Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
+
+            <header className="bg-white shadow">
+                <div className=" max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                  <h1 className="text-3xl font-bold text-gray-900 inline">Account</h1>
+                  <div className="float-right ">
+                    <YoutubeSubscriberList />
+                  </div>
+                </div>
+              </header>
                 
-                    {/* Place your content here */}
                     <main>
                     <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-                        {/* Replace with your content */}
                         <div className="px-4 py-6 sm:px-0">
-                        <div className="columns-3">
-                              <div class="break-after-column">
-                              <h2><b>Recent videos past two weeks</b></h2>
-                                <ul>
-                                <li>The tesla space suit </li>
-                                <li>The james webb tele </li>
-                                <li>This battery will</li>
-                                <li>the world in 2050</li>
-                                <li>elon musk zone</li>
-                                <li>whats this new discovery</li>
-                                <li>tesla house </li>
-                              </ul>
-                              </div>
-                              <div class="break-after-column">
-                                <h2><b>Channel Subsciptions</b></h2>
-                              <ul>
-                                <li>The tesla space </li>
-                                <li>elon musk zone </li>
-                                <li>Futurnity</li>
-                                <li>melodysheep</li>
-                                <li>nasa</li>
-                                <li>future origns</li>
-                                <li>Space channel</li>
-                              </ul>
-                              </div>
-                          
-                          </div>
-                          
-                          
-                          <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 mb-4" />
-                          
-                          <div className="grid grid-cols-8 grid-flow-col gap-4 overflow-auto h-96">
+                        
+
+                          <div className="grid grid-cols-8 grid-flow-col gap-4 overflow-auto ">
                             <div className="col-span-2">
-                              <h2>My Subscriptions</h2>
+                             <strong>Channel Subscriptions</strong> 
                                 <div className="flex items-center gap-4 p-4">
-                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" />
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" alt="" />
                                  <div className="flex flex-col">
                                     <strong>The Tesla Space</strong>
                                   </div>
                                 </div>
                                 <div className="flex items-center gap-4 p-4">
-                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" />
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" alt=""/>
                                  <div className="flex flex-col">
                                     <strong>Futurnity</strong>
                                   </div>
                                 </div>
                                 <div className="flex items-center gap-4 p-4">
-                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" />
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" alt="" />
                                  <div className="flex flex-col">
                                     <strong>Melodysheep</strong>
                                   </div>
                                 </div>
-                              
+                                <div className="flex items-center gap-4 p-4">
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" alt=""/>
+                                 <div className="flex flex-col">
+                                    <strong>Nasa</strong>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-4 p-4">
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" alt=""/>
+                                 <div className="flex flex-col">
+                                    <strong>Future Origins</strong>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-4 p-4">
+                                  <img src="https://images.unsplash.com/photo-1601158935942-52255782d322?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872" class="object-cover h-20 w-20 rounded-lg" alt="" />
+                                 <div className="flex flex-col">
+                                    <strong>Space Channel</strong>
+                                  </div>
+                                </div>
                             </div>
                             <div className="col-span-6">
-                                  <strong>List of video titles from your subscriptions - last 2 weeks - most viewed first - some kind of velocity score</strong>
+                                  <div class="container mb-4">                                  
+                                    {/* <strong>List of video titles from your subscriptions - last 2 weeks - most viewed first - some kind of velocity score</strong> */}
+                                    <strong>Idea Finder</strong>
+                                  
+                                  <Menu as="div" className="relative block text-left float-right my-2">
+                                  <div>
+                                    <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                                      Sort
+                                      <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+                                    </Menu.Button>
+                                  </div>
+
+                                  <Transition
+                                    as={Fragment}
+                                    enter="transition ease-out duration-100"
+                                    enterFrom="transform opacity-0 scale-95"
+                                    enterTo="transform opacity-100 scale-100"
+                                    leave="transition ease-in duration-75"
+                                    leaveFrom="transform opacity-100 scale-100"
+                                    leaveTo="transform opacity-0 scale-95"
+                                  >
+                                  <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <div className="py-1">
+                                      <Menu.Item>
+                                        {({ active }) => (
+                                          <a
+                                            href="#"
+                                            className={classNames(
+                                              active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                              'block px-4 py-2 text-sm'
+                                            )}
+                                          >
+                                            Most Viewed - 2 Weeks
+                                          </a>
+                                        )}
+                                      </Menu.Item>
+                                      <form method="POST" action="#">
+                                        <Menu.Item>
+                                          {({ active }) => (
+                                            <button
+                                              type="submit"
+                                              className={classNames(
+                                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                'block w-full text-left px-4 py-2 text-sm'
+                                              )}
+                                            >
+                                              View Velocity
+                                            </button>
+                                          )}
+                                        </Menu.Item>
+                                      </form>
+                                    </div>
+                                  </Menu.Items>
+                                </Transition>
+                              </Menu>
+                              </div>
+                              <div class="container mt-24">     
+                              <table class="min-w-full shadow-md">
+                                <thead class="bg-gray-50">
+                                  <tr>
+                                    <th class="p-4 text-left font-bold">Video Title</th>
+                                    <th class="p-4 text-left font-bold">Channel</th>
+                                    <th class="p-4 text-left font-bold">Date Released</th>
+                                    <th class="p-4 text-left font-bold">View Count</th>
+                                    <th class="p-4 text-left font-bold">Velocity</th>
+                                  </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-300">
+                                  <tr>
+                                    <td class="p-4">The tesla space suit</td>
+                                    <td class="p-4">Futurnity</td>
+                                    <td class="p-4">May 5, 2022</td>
+                                    <td class="p-4">2.7M</td>
+                                    <td class="p-4">0.87</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="p-4">This battery will blow your mind</td>
+                                    <td class="p-4">Elon Musk Zone</td>
+                                    <td class="p-4">May 19, 2022</td>
+                                    <td class="p-4">465K</td>
+                                    <td class="p-4">0.56</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="p-4">Whats this new discovery?!?!</td>
+                                    <td class="p-4">Nasa</td>
+                                    <td class="p-4">May 27, 2022</td>
+                                    <td class="p-4">1.3M</td>
+                                    <td class="p-4">0.63</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              </div>
                             </div>
                           </div>
-
-
-
                         </div>
                         <div>
                             <h1>Sign into your youtube account</h1>
